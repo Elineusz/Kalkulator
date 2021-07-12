@@ -1,15 +1,14 @@
-import interface as i
-import calculate as cal
+import interface as interface
+import calculate as calc
 
 def calculator():
     print("Witaj w kalkulatorze")
-    user_choice = i.display_menu()
-    arguments = i.get_arguments()
-    calc_func = cal.symbol_to_func[user_choice]
-    print(calc_func(*arguments))
+    user_choice = interface.display_menu()
+    arguments = interface.get_arguments(user_choice)
+    calc_func = calc.symbol_to_func[user_choice]
 
+    print(interface.print_results(user_choice, arguments, calc_func(arguments[0],arguments[1])))
 
 if __name__ == '__main__':
     calculator()
 
-cal.factorial(3)
